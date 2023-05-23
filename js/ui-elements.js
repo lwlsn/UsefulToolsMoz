@@ -8,7 +8,7 @@ function createEffectSliders() {
       // slider[i].hide();
 
       let ySpacing = 120;
-      let xPadding = width*(1/6);
+      let xPadding = width*(6/40);
       let xSpacing = 100;
       let xPosition = sequencerElement.x - xPadding + (i % 2) * xSpacing;
       let yPosition = sequencerElement.h/7*sequencerElement.rows + Math.floor(i / 2) * ySpacing;
@@ -22,8 +22,8 @@ function createEffectSliders() {
 function createEffectSliders2() {
   for (let i=0; i <effectLabels.length; i++) {
 
-    let ySpacing = 120;
-    let xPadding = width*(1/6);
+    let ySpacing = 120
+    let xPadding = width*(6/40);
     let xSpacing = 100;
     let xPosition = sequencerElement.x - xPadding + (i % 2) * xSpacing;
     let yPosition = 425+sequencerElement.h/7*sequencerElement.rows + Math.floor(i / 2) * ySpacing;
@@ -34,7 +34,7 @@ function createEffectSliders2() {
 
 function createVolumeSlider() {
   // volumeSlider = createSlider(-24, 0, -12, 1);
-  let xPadding = width * (11/ 40);
+  let xPadding = width * (10/ 40);
   // volumeSlider.position(sequencerElement.x - xPadding, sequencerElement.h/4*sequencerElement.rows); 
   // volumeSlider.addClass('big-slider');
   // volumeSlider.hide();
@@ -49,7 +49,7 @@ function createVolumeSlider() {
 
 function createVolumeSlider2() {
 
-  let xPadding = width * (11/ 40);
+  let xPadding = width * (10/ 40);
 
   let pos = createVector(sequencerElement.x - xPadding, 425+sequencerElement.h*(15/40)*sequencerElement.rows);
   let sSize = createVector(20, 180);
@@ -65,7 +65,7 @@ function updateTexts() {
     for (let i=0; i <effectLabels.length; i++) {
       fill(0);
       let ySpacing = 120;
-      let xPadding = width*(1/6);
+      let xPadding = width*(6/40);
       let xSpacing = 100;
       let xPosition = sequencerElement.x - xPadding + (i % 2) * xSpacing;
       let yPosition = sequencerElement.h/8*sequencerElement.rows + Math.floor(i / 2) * ySpacing;
@@ -75,7 +75,7 @@ function updateTexts() {
       }
 
     }
-    let xPadding = width * (12/ 40);
+    let xPadding = width * (11/ 40);
     text("MASTER VOLUME", sequencerElement.x-xPadding,sequencerElement.h/25*sequencerElement.rows, 100, 100);
   
     synth.volume.value = volumeSlider.returnVal(); 
@@ -90,7 +90,7 @@ function updateTexts2() {
     for (let i=0; i <effectLabels.length; i++) {
       fill(0);
       let ySpacing = 120;
-      let xPadding = width*(1/6);
+      let xPadding = width*(6/40);
       let xSpacing = 100;
       let xPosition = sequencerElement.x - xPadding + (i % 2) * xSpacing;
       let yPosition = 425+sequencerElement.h/8*sequencerElement.rows + Math.floor(i / 2) * ySpacing;
@@ -100,7 +100,7 @@ function updateTexts2() {
       }
 
     }
-    let xPadding = width * (12/ 40);
+    let xPadding = width * (11/ 40);
     text("MASTER VOLUME", sequencerElement.x-xPadding,425+sequencerElement.h/25*sequencerElement.rows, 100, 100);
   
     synth2.volume.value = volumeSlider2.returnVal(); 
@@ -175,54 +175,53 @@ function toggleSeqShow() {
 }
 
 
-function createDividers() {
+// function createDividers() {
 
-    // Synth Button Outlines
-    let xSpacing = 150;
-    let xPadding = width * (13/ 40);
-    let ySpacing = 60;
-    let xPosition = sequencerElement.x - xPadding + xSpacing;
-    let yPosition = sequencerElement.h*(9/13)* sequencerElement.rows + ySpacing;
+//     // Synth Button Outlines
+//     let xSpacing = 150;
+//     let xPadding = width * (13/ 40);
+//     let ySpacing = 60;
+//     let xPosition = sequencerElement.x - xPadding + xSpacing;
+//     let yPosition = sequencerElement.h*(9/13)* sequencerElement.rows + ySpacing;
 
-    noFill();
-    stroke(0,130);
-    rectMode(CENTER);
-    rect(xPosition+width*(1/30), yPosition-5, 425, 125, 20);
-    if (moreSeqElementsShowing[0]) {
-      rect(xPosition+width*1/30, 425+yPosition-5,  425, 125, 20);
-    }
+//     noFill();
+//     stroke(0,130);
+//     rectMode(CENTER);
+//     rect(xPosition+width*(1/30), yPosition-5, 425, 125, 20);
+//     if (moreSeqElementsShowing[0]) {
+//       rect(xPosition+width*1/30, 425+yPosition-5,  325, 125, 20);
+//     }
   
 
-    // Volume Slider Outlines 
+//     // Volume Slider Outlines 
+//     let ySpacingVol = 120;
+//     let xPaddingVol = width*(1/5);
+//     let xSpacingVol = 100;
+//     let xPositionVol = sequencerElement.x - xPaddingVol;
+//     let yPositionVol = sequencerElement.h/7*sequencerElement.rows + ySpacingVol;
 
-    let ySpacingVol = 120;
-    let xPaddingVol = width*(1/6);
-    let xSpacingVol = 100;
-    let xPositionVol = sequencerElement.x - xPaddingVol +  xSpacingVol;
-    let yPositionVol = sequencerElement.h/7*sequencerElement.rows + ySpacingVol;
-
-    rect(xPositionVol-width*(7/40), yPositionVol-40, 180, 250, 20);
-    if (moreSeqElementsShowing[0]) {
-      rect(xPositionVol-width*(7/40), 425+yPositionVol-40, 180, 250, 20);
-    }
+//     rect(xPositionVol-100, yPositionVol-40, 140, 250, 20);
+//     if (moreSeqElementsShowing[0]) {
+//       rect(xPositionVol-100, 425+yPositionVol-40, 140, 250, 20);
+//     }
 
 
-    // Effect Slider Outlines 
-    let ySpacingEffect = 120;
-    let xPaddingEffect = width*(1/6);
-    let xSpacingEffect = 100;
-    let xPositionEffect = sequencerElement.x - xPaddingEffect + xSpacingEffect;
-    let yPositionEffect = sequencerElement.h/7*sequencerElement.rows + ySpacingEffect;
+//     // Effect Slider Outlines 
+//     let ySpacingEffect = 120;
+//     let xPaddingEffect = width*(1/6);
+//     let xSpacingEffect = 100;
+//     let xPositionEffect = sequencerElement.x - xPaddingEffect + xSpacingEffect;
+//     let yPositionEffect = sequencerElement.h/7*sequencerElement.rows + ySpacingEffect;
 
-    rect(xPositionEffect-width*(1/50), yPositionEffect-40, 220, 250, 20);
-    if (moreSeqElementsShowing[0]) {
-      rect(xPositionEffect-width*(1/50), 425+yPositionEffect-40, 220, 250, 20);
-    }
+//     rect(xPositionEffect-width*(1/60), yPositionEffect-40, 180, 250, 20);
+//     if (moreSeqElementsShowing[0]) {
+//       rect(xPositionEffect, 425+yPositionEffect-40, 200, 180, 20);
+//     }
 
-    rectMode(CORNER);
-    noStroke();
+//     rectMode(CORNER);
+//     noStroke();
 
-}
+// }
   
 
 

@@ -64,7 +64,7 @@ function createSynthButtons() {
   let buttonWidth = 120;
   let buttonHeight = 50;
   let xSpacing = 140;
-  let xPadding = width * (13/ 40);
+  let xPadding = width * (12/ 40);
   let ySpacing = 60;
   let rectPadding = 25;
 
@@ -102,7 +102,7 @@ function createSynth2Buttons() {
   let buttonWidth = 120;
   let buttonHeight = 50;
   let xSpacing = 140;
-  let xPadding = width * (13/ 40);
+  let xPadding = width * (12/ 40);
   let ySpacing = 60;
 
   for (let i = 0; i < synthTypes.length; i++) {

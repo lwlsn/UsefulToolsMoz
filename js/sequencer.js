@@ -18,36 +18,28 @@ class Sequencer {
     }
   
     display() {
-  
-        if (!this.isVisible) {
+      if (!this.isVisible) {
           return;
-        }
-        push();
-        translate(this.x, this.y);
-    
-        for (let i=0; i< this.rows; i++) {
-          if (this.grid[0][i]) {
-            fill(255);
+      }
+      push();
+      translate(this.x, this.y);
+  
+      for (let i = 0; i < this.rows; i++) {
+          for (let j = 0; j < this.cols; j++) {
+              if (this.grid[i][j]) {
+                  fill(0, 220, 0);
+              } else {
+                  fill(200);
+              }
+
+              stroke(150);
+              strokeWeight(1);
+              rect(j * this.w, i * this.h, this.w, this.h);
           }
-          stroke(255);
-          rect(this.w, i*this.h, this.w, this.h);
-        }
-    
-        for (let i = 0; i < this.rows; i++) {
-          for (let j = 1; j < this.cols; j++) {
-            if (this.grid[i][j]) {
-              fill(0,220, 0);
-            } else {
-                
-              fill(200);
-            }
-            stroke(150);
-            strokeWeight(1);
-            rect(j * this.w, i * this.h, this.w, this.h);
-          }
-        }
-        pop();
-    }
+      }
+      pop();
+  }
+  
   
     toggleSquare() {
       let j = floor((mouseX - this.x) / this.w);
