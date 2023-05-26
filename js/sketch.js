@@ -54,6 +54,7 @@ function setup() {
   addSequencerButton.mousePressed(toggleSeqShow); 
   addSequencerButton.position(width-width/14, height-height/10);
 
+  Tone.context.latencyHint = "playback";
   sequencerElement = new Sequencer(width-width*(7/14), 10, seqLength, seqNotesCmaj.length);
   synth = new Tone.Synth().toDestination();
   synth2 = new Tone.AMSynth().toDestination();

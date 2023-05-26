@@ -66,12 +66,14 @@ function playSequenceCmaj(time) {
     let seqColumn2 = sequencerElement2.grid.map(row =>row[playIndex]);
     for (let i = 0; i < seqNotesCmaj.length; i++) {
       if (seqColumn[i]) {
+        synth.triggerRelease();
         synth.triggerAttackRelease(seqNotesCmaj[i], '16n', time);
         // print(seqNotesCmaj[i]);
       }
     }
     for (let i = 0; i < seqNotesCmaj.length; i++) {
       if (seqColumn2[i]) {
+        synth2.triggerRelease()
         synth2.triggerAttackRelease(seqNotesCmaj[i], '16n', time);
         print(seqNotesCmaj[i]);
       }
