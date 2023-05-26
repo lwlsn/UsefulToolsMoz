@@ -42,6 +42,8 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
+  frameRate(14);
+
   mozImgX =width/8;
   mozImgY =  height*(3/4);
   
@@ -94,13 +96,13 @@ function draw() {
 
 
 
-  if (mozImgAnimate) {
-    mozImgX+=10; 
-    mozImgY += random(-2, 2);
-    if (mozImgX >width +50) {
-      mozImgAnimate = false;
-    } 
-  }
+  // if (mozImgAnimate) {
+  //   mozImgX+=10; 
+  //   mozImgY += Math.random()*4 -2;
+  //   if (mozImgX >width +50) {
+  //     mozImgAnimate = false;
+  //   } 
+  // }
 
   
   if (isNotHidden) {
@@ -112,8 +114,9 @@ function draw() {
   for (let i=0; i < effectLabels.length; i++) {
     slider[i].display();
   }
-  updateEffects(); 
 
+
+  updateEffects(); 
 
   // Highlight the current column
   fill(50, 168, 82, 50);
@@ -137,11 +140,13 @@ function draw() {
     line(120, sequencerElement.h*sequencerElement.rows+20, width-120, sequencerElement.h*sequencerElement.rows+20 );
    
     if (moreSeqElementsShowing[0]) {
+
       stroke(0, 80);
       strokeWeight(2);
       line(120, 2*sequencerElement.h*sequencerElement.rows+40, width-120, 2*sequencerElement.h*sequencerElement.rows+40 );
       for (let i = 0; i < 6; i++) { // to-do: using hard coded numbers here
         synthButtons2[i].show();
+    
       }
       for (let i=0; i < effectLabels.length; i++) {
         slider2[i].display();

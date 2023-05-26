@@ -7,7 +7,6 @@ function zigzag(xVal) {
     
     for (let i=0; i < numTriangles; i++) {
       triangle(xVal, height*(i/numTriangles), xVal+180, height/(numTriangles*2) +height*(i/numTriangles), xVal,  height*(i/numTriangles)+ height/numTriangles);
-      
     }
     
     noStroke();
