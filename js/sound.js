@@ -1,4 +1,5 @@
-function changeSynthType(type) {
+function changeSynthType(button,type) {
+
     if (type === "Synth") {
         synth = new Tone.Synth();
         synth.chain(crusher, cheby, delay, reverb);
@@ -8,25 +9,34 @@ function changeSynthType(type) {
       } else if (type === "Duo Synth") {
         synth = new Tone.DuoSynth().toDestination();
         synth.chain(crusher,cheby, delay, reverb);
-        synth.volume.value = -12; 
+        // synth.volume.value = -12; 
       } else if (type === "Pluck Synth") {
         synth = new Tone.PluckSynth().toDestination();
         synth.chain(crusher, cheby, delay, reverb);
       } else if (type ==  "FM Synth") {
         synth = new Tone.FMSynth().toDestination();
         synth.chain(crusher,cheby, delay, reverb);
-      } else if (type = "Membrane Synth") {
+      } else if (type == "Membrane Synth") {
         synth = new Tone.MembraneSynth().toDestination();
         synth.chain(crusher,cheby, delay, reverb);
-        synth.volume.value = -12; 
+        // synth.volume.value = -12; 
       }
       synthType = type;
-      console.log("Changed Synth Type to " + synthType);
+      
+
+      if (currentButton) {
+        currentButton.removeClass('active');
+      }
+
+      currentButton = button;
+      currentButton.addClass('active');
+    
+      
 }
 
 
 
-function changeSynth2Type(type) {
+function changeSynth2Type(button, type) {
   if (type === "Synth") {
       synth2 = new Tone.Synth();
       synth2.chain(crusher2, cheby2, delay2, reverb2);
@@ -49,17 +59,27 @@ function changeSynth2Type(type) {
       synth2.volume.value = -12; 
     }
     synthType2 = type;
-    console.log("Changed Synth Type to " + synthType2);
+
+    if (currentButton2) {
+      currentButton2.removeClass('active');
+    }
+
+    currentButton2 = button;
+    currentButton2.addClass('active');
+
 }
 
 function createSynthButtons() {
-  let synthTypes = ["Synth", "AM Synth", "Duo Synth", "Pluck Synth", "FM Synth", "Membrane Synth" ];
+  let synthTypes = ["Synth", "AM Synth", "Duo Synth", "Pluck Synth", "FM Synth", "Membrane Synth"];
   for (let i = 0; i < synthTypes.length; i++) {
     let type = synthTypes[i];
-    // let button = createButton(type);
-    synthButtons[i] = createButton(type);
-    synthButtons[i].mousePressed(function() {changeSynthType(type)});  
-  } 
+    let button = createButton(type);
+    button.mousePressed(() => {
+      changeSynthType(button, type);
+    });
+    button.elt.setAttribute('data-index', i);
+    synthButtons.push(button);
+  }
 
   let buttonWidth = 120;
   let buttonHeight = 50;
@@ -91,14 +111,16 @@ function createSynthButtons() {
 }
 
 function createSynth2Buttons() {
-  let synthTypes = ["Synth", "AM Synth", "Duo Synth", "Pluck Synth", "FM Synth", "Membrane Synth" ];
+  let synthTypes = ["Synth", "AM Synth", "Duo Synth", "Pluck Synth", "FM Synth", "Membrane Synth"];
   for (let i = 0; i < synthTypes.length; i++) {
     let type = synthTypes[i];
-    // let button = createButton(type);
-    synthButtons2[i] = createButton(type);
-    synthButtons2[i].mousePressed(function() {changeSynth2Type(type)});  
-  } 
-
+    let button2 = createButton(type);
+    button2.mousePressed(() => {
+      changeSynth2Type(button2, type);
+    });
+    button2.elt.setAttribute('data-index', i);
+    synthButtons2.push(button2);
+  }
   let buttonWidth = 120;
   let buttonHeight = 50;
   let xSpacing = 140;
@@ -146,3 +168,13 @@ function updateEffects() {
   crusher2.wet.value = slider2[3].returnVal();
 
 }
+
+function changeButtonColor() {
+  if (currentButton) {
+    currentButton.removeClass('active');
+  }
+  
+  currentButton = synthButtons[this.attribute('data-index')];
+  currentButton.addClass('active');
+}
+

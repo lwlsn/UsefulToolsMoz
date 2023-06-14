@@ -22,7 +22,9 @@ let currentstep = 0;
 
 let synthType = "Tone.Synth()";
 let synthButtons = []; 
+let currentButton = null;
 let synthButtons2 = [];
+let currentButton2 = null;
 
 let effectLabels = ["Reverb", "Delay", "Distortion", "Crush"];
 let reverb, delay,cheby, crusher;
@@ -42,10 +44,10 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
-  frameRate(14);
+  frameRate(20);
 
-  mozImgX =width/8;
-  mozImgY =  height*(3/4);
+  mozImgX =width/9;
+  mozImgY =  height*(32/40);
   
   hideButton = createButton("Start");
   hideButton.mousePressed(toggleHide);
@@ -60,6 +62,7 @@ function setup() {
   sequencerElement = new Sequencer(width-width*(7/14), 10, seqLength, seqNotesCmaj.length);
   synth = new Tone.Synth().toDestination();
   synth2 = new Tone.AMSynth().toDestination();
+  synth2.volume.value = -100;
   Tone.Transport.scheduleRepeat(playSequenceCmaj, '16n');
   Tone.Transport.start();
 

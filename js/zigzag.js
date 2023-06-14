@@ -2,15 +2,15 @@
 function zigzag(xVal) {
 
     fill(0);
-    stroke(0, 255, 0);
+    stroke("#00FF00");
     strokeWeight(2);
     
     for (let i=0; i < numTriangles; i++) {
-      triangle(xVal, height*(i/numTriangles), xVal+180, height/(numTriangles*2) +height*(i/numTriangles), xVal,  height*(i/numTriangles)+ height/numTriangles);
+      triangle(xVal, height*(i/numTriangles), xVal+180, (height)/(numTriangles*2) +(height)*(i/numTriangles), xVal,  height*(i/numTriangles)+ height/numTriangles);
     }
     
     noStroke();
-    rect(0, 0, xVal+1, height);
+    rect(0, 0, xVal+1, 1800);
     
     fill("#FFED00");
   
@@ -26,7 +26,7 @@ function zigzag(xVal) {
         text("You can change the sounds of each sequencer by pressing the corresponding buttons.You can change also add effects by rotating the sliders.Clicking on the plus button in the bottom right hand corner allows you to add two different sequencers to play together.", xVal-xVal*(35/40)+10,350, width*(9/20), 500);
         text(" Control their independent volume using the volume slider. And the play button in the top right hand allows you to stop and start everything.", xVal-xVal*(35/40)+10,500, width*(9/20), 400);
 
-       image(mozImg, xVal - xVal*(2/3), 600, 250, 250);
+       image(mozImg,1150, 300, 250, 250);
     }
    
     

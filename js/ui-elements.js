@@ -78,6 +78,7 @@ function updateTexts() {
     let xPadding = width * (11/ 40);
     text("MASTER VOLUME", sequencerElement.x-xPadding,sequencerElement.h/25*sequencerElement.rows, 100, 100);
   
+
     synth.volume.value = volumeSlider.returnVal(); 
 
     textSize(32)
@@ -103,7 +104,10 @@ function updateTexts2() {
     let xPadding = width * (11/ 40);
     text("MASTER VOLUME", sequencerElement.x-xPadding,425+sequencerElement.h/25*sequencerElement.rows, 100, 100);
   
-    synth2.volume.value = volumeSlider2.returnVal(); 
+    if (moreSeqElementsShowing[0]) {
+      synth2.volume.value = volumeSlider2.returnVal(); 
+    }
+   
 
 }
 
@@ -312,7 +316,7 @@ class CustomSlider {
   }
   
   returnVal() {
-    let outValue = map(this.knobY,  this.y+this.h/2, this.y-this.h/2, -24, 0);
+    let outValue = map(this.knobY, this.y+this.h/2, this.y-this.h/2, -64, -0.01);
     textSize(14);
     fill(0);
     text(outValue.toFixed(2), this.x+20, this.y+this.h/2);
@@ -320,3 +324,4 @@ class CustomSlider {
     return(outValue.toFixed(2));
   }
 }
+

@@ -90,6 +90,12 @@ canvas {
   opacity: 1
 }
 
+
+.synth-button.active {
+  background-color: #00FF00;
+  color: white;
+}
+
 .track-button {
   background-color: #000000; /* Solid black */
   color: white; 
